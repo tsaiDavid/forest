@@ -1,6 +1,6 @@
 import TreeNode from "./TreeNode";
 
-const test = [1, 2, 3];
+const test = [1, null, 2, 3];
 
 const node = val => {
   return val === null ? null : new TreeNode(val);
@@ -12,16 +12,20 @@ const deserialize = function(treeData) {
   }
 
   const nodes = treeData.map(val => node(val));
-  let head = null;
+  const kids = [...nodes];
+  let head = kids.shift();
 
-  while (nodes.length) {
-    let curr = nodes.shift();
-    if (!head) {
-      head = curr;
+  nodes.forEach(node => {
+    if (node) {
+      if (kids.length) {
+        node.left = kids.shift();
+      }
+
+      if (kids.length) {
+        node.right = kids.shift();
+      }
     }
-    curr.left = nodes.shift();
-    curr.right = nodes.shift();
-  }
+  });
 
   return head;
 };
