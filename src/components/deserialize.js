@@ -28,3 +28,5 @@ export const deserialize = function(treeData) {
 
   return head;
 };
+
+export const stratify = function(root) {};
