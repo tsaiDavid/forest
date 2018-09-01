@@ -44,6 +44,7 @@
     "react": "^16.4.2",
     "react-dev-utils": "^5.0.1",
     "react-dom": "^16.4.2",
+    "reason-react": "^0.5.3",
     "resolve": "1.6.0",
     "style-loader": "0.19.0",
     "sw-precache-webpack-plugin": "0.11.4",
@@ -54,12 +55,14 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
-    "start": "node scripts/start.js",
+    "start": "bsb -make-world -w",
+    "start:old": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
   },
   "devDependencies": {
-    "babel-plugin-import": "^1.8.0"
+    "babel-plugin-import": "^1.8.0",
+    "bs-platform": "^4.0.5"
   },
   "jest": {
     "collectCoverageFrom": [
